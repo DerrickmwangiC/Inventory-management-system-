@@ -63,6 +63,7 @@ int main() {
     }
     return 0;
 }
+
 void addItem() {
     if(itemCount >= MAX_ITEMS) {
         printf("Inventory is full!\n");
@@ -126,47 +127,46 @@ void updateQuantity() {
     }
 }
 
+void displayInventory() {
+    if(itemCount == 0) {
+        printf("Inventory is empty!\n");
+        return;
+    }
+    
+    printf("\nCurrent Inventory:\n");
+    printf("ID\tName\t\tQuantity\tPrice\n");
+    printf("----------------------------------------\n");
+    
+    for(int i = 0; i < itemCount; i++) {
+        printf("%d\t%-16s%d\t\t%.2f\n", 
+               inventory[i].id, 
+               inventory[i].name, 
+               inventory[i].quantity, 
+               inventory[i].price);
+    }
+}
+
+void searchItem() {
+    int id, found = 0;
+    printf("Enter item ID to search: ");
+    scanf("%d", &id);
+    
+    for(int i = 0; i < itemCount; i++) {
+        if(inventory[i].id == id) {
+            printf("\nItem Found:\n");
+            printf("ID: %d\n", inventory[i].id);
+            printf("Name: %s\n", inventory[i].name);
+            printf("Quantity: %d\n", inventory[i].quantity);
+            printf("Price: %.2f\n", inventory[i].price);
+            found = 1;
+            break;
+        }
+    }
+    
+    if(!found) {
+        printf("Item not found!\n");
+    }
+}
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
