@@ -63,8 +63,23 @@
 
 
 
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_ITEMS 100
+
+typedef struct {
+    int id;
+    char name[50];
+    int quantity;
+    float price;
+} Item;
+
+Item inventory[MAX_ITEMS];
+int itemCount = 0;
+
 void addItem() {
-    if(itemCount >= MAX_ITEMS) {
+    inventory[itemCount++] = newItem;
         printf("Inventory is full!\n");
         return;
     }
@@ -79,7 +94,7 @@ void addItem() {
     printf("Enter price: ");
     scanf("%f", &newItem.price);
     
-    inventory[itemCount++] = newItem;
+    inventory{itemCount++ }= newItem;
     printf("Item added successfully!\n");
 }
 
